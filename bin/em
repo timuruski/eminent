@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# em registrars add namecheap.com --name NameCheap
+# em domains add timuruski.net --registrar namecheap.com
+# em domains update timuruski.net --created_at 2014-01-01
+#
+
+require 'bundler/setup'
+require 'gli'
+require 'hirb'
+
+include GLI::App
+
+program_desc "A small program for managing domain names."
+
+command :domains do |cmd|
+  cmd.action do
+    puts Hirb::Helpers::Table.render [{:name=>'batman'}, {:name=>'robin'}], :query=>{:name=>'rob'}
+  end
+end
+
+exit run(ARGV)
