@@ -1,11 +1,4 @@
-# require 'eminent/models/domain'
-
 module Eminent
-  module Domains
-    TABLE_NAME = 'domains'
-
-    def self.all
-      Database.connection.from(TABLE_NAME).all
-    end
-  end
+  Domain = Model.new(:hostname, :registrar, :created_on, :expires_on)
+  Domains = Table.new(Domain, 'domains')
 end
