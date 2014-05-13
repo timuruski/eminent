@@ -8,22 +8,32 @@ interface when it grows up.
 
 ## Usage
 
-Working with registrars:
+Eminent requires two data files in the form of YAML.
 
-    $ em registrar add namecheap --hostname https://namecheap.com
-    $ em registrar add-price namecheap com 10.99
+There is a file to track all the domains and where they are registered:
 
+    # data/domains.yml
+    ---
+    example.com:
+      created_on: 2014-01-01
+      expires_on: 2015-01-01
+      registrar: name.com
+    zerozero.co:
+      created_on: 2013-05-31
+      expires_on: 2017-05-31
+      registrar: name.com
 
-Adding and updating domains:
+There is a file to track registrars and the price per TLD.
 
-    $ em domain add example.com --registrar namecheap
-    $ em domain update example.com --expiry 2015-01-01
-
-
-Working with domains:
-
-    $ em list
-    $ em list namecheap
-    $ em expiring
-    $ em total
-
+    # data/registrars.yml
+    name.com:
+      name: Name.com
+      tlds:
+        com: 10.99
+        net: 10.99
+        co: 18.99
+    gandi.net:
+      name: Gandi
+      tlds:
+        com: 10.99
+        net: 10.99
